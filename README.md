@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habesha Animal Live AI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #16120e;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+    }
+    .header {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .live-badge {
+      background: #e62e2e;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .stage {
+      width: 100%;
+      max-width: 340px;
+      height: 420px;
+      background: #241e18;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border: 2px solid #3a3026;
+      text-align: center;
+      padding: 10px;
+    }
+    .stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* ምስሉ እንዲሞላ ያደርጋል */
+      border-radius: 14px;
+    }
+    .status {
+      margin: 12px 0;
+      font-size: 16px;
+      color: #f5c542;
+      font-weight: bold;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 100%;
+      max-width: 360px;
+    }
+    button {
+      background: #2b241d;
+      color: #fff;
+      border: 1px solid #4d4033;
+      padding: 14px 8px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:active {
+      background: #f5c542;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div><span class="live-badge">● LIVE</span> <strong>Selam Habesha AI</strong></div>
+    <div>Gifts: <span id="giftCount">0</span></div>
+  </div>
+
+  <div class="stage" id="stage">
+    <p>ስጦታ ሲላክ እዚህ ይታያል!<br>ከታች ያሉትን ቁልፎች ንካ 👇</p>
+  </div>
+
+  <div class="status" id="statusText">ዝግጁ ነው (Idle)</div>
+
+  <div class="buttons">
+    <button onclick="playAnimal('ጅብ (Hyena Dance)', 'hyena.jpg')">🌹 Rose<br><small>ጅብ</small></button>
+    <button onclick="playAnimal('ውሻ (Dog Dance)', 'dog.jpg')">❤️ Heart<br><small>ውሻ</small></button>
+    <button onclick="playAnimal('አህያ (Donkey Dance)', 'donkey.jpg')">🦁 Lion<br><small>አህያ</small></button>
+  </div>
+
+  <script>
+    let count = 0;
+    function playAnimal(label, file) {
+      count++;
+      document.getElementById('giftCount').innerText = count;
+      document.getElementById('statusText').innerText = label + ' እየደነሰ ነው!';
+      const stage = document.getElementById('stage');
+      // img tag እንዲጠቀም ተቀይሯል
+      stage.innerHTML = `<img src="${file}" alt="${label}" />`;
+    }
+  </script>
+
+</body>
+</html>
